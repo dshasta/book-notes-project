@@ -4,18 +4,61 @@
   <%- include("partials/head.ejs") %>
 </head>
 
-<body>
+<body class="bg-light">
   <%- include("partials/header.ejs") %>
 
   <div class="container mt-4">
   
-  <h1> <%= pageTitle %> </h1>
+    <!-- Page title on its own line -->
+    <h1> <%= pageTitle %> </h1>
+  
+    <!-- Row to hold the new review button and sort links -->
+    <div class="row align-items-center mt-4">
+      <div class="col-md-6">
+        <a href="/new-review" class="btn btn-dark">New Review</a>
+      </div>
+      <div class="col-md-6 text-end">
+        <span class="me-1">Sort by</span>
+        <a href="/?sort=newest" class="me-2 text-muted">Newest</a>
+        <a href="/?sort=best" class="me-2 text-muted">Best</a>
+        <a href="/?sort=title" class="text-muted">Title</a>
+      </div>
+    </div>
 
-</div>
+    <!-- Add a horizontal line (hr) -->
+    <hr class="mt-3 mb-4" style="border-top: 1px solid #adb5bd;">
 
-<%- include("partials/footer.ejs") %>
+    <div class="mt-4">
+      <% for(let review of reviews_list) { %>
+        <!-- Row for each review -->
+        <div class="row mb-4">
+          
+          <!-- Left side: Book cover -->
+          <div class="col-md-1">
+            <img src="<%= review.coverImage %>" alt="Book cover for <%= review.title %>" class="img-fluid">
+          </div>
+          
+          <!-- Right side: Book details -->
+          <div class="col-md-11">
+            <h4 id="title<%= review.id %>">
+              <%= review.title %> - by <%= review.author %>
+            </h4>
+            <p>Review by <strong><%=review.username%></strong></p>
+            <p>Rating: <%= review.starRating %></p>
+            <p>Date Read: <strong><%= new Date(review.date_read).toLocaleDateString('en-CA') %></strong></p>
+          </div>
+
+        </div>
+        <!-- End of row for review -->
+      <% } %>
+    </div>
+    
+  </div>
+
+  <%- include("partials/footer.ejs") %>
 
 </body>
+
 
 
 

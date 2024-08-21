@@ -10,13 +10,12 @@
   <div class="container min-vh-100 d-flex align-items-center justify-content-center">
 
   <div class="card shadow p-4" style="width: 100%; max-width: 700px;">
-    <!-- EJS template for dynamic content -->
     <h3 class="mt-1 pt-0 mb-3">New Review</h3>
     
-    <form action="/submit" method="POST" class="mt-2">
+    <form action="/add" method="POST" class="mt-2">
     
       <div class="mb-2">
-        <input type="text" name="user" placeholder="Your Name" required class="form-control">
+        <input type="text" name="username" placeholder="Your Name" required class="form-control">
       </div>
     
       <div class="mb-2">
@@ -28,8 +27,14 @@
       </div>
       
       <div class="mb-3">
-        <input type="text" name="isbn13" placeholder="ISBN (13 digits, no dashes)" required class="form-control">
+        <input type="text" name="isbn13" placeholder="ISBN (13 digits, no dashes)" pattern="\d{13}" title="ISBN must be exactly 13 digits with no spaces or dashes" required class="form-control">
       </div>
+
+      <div class="mb-3">
+        <label for="dateRead" class="form-label">Date Read</label>
+        <input type="date" name="date_read" id="dateRead" required class="form-control">
+      </div>
+      
 
       <div class="mb-4">
         <label class="form-label">Rating</label> <br>
@@ -69,7 +74,8 @@
       </div>
       
       <div class="mb-3">
-        <textarea name="reviewBody" placeholder="Review" rows="10" class="form-control" required></textarea>
+        <textarea id="reviewBody" name="reviewBody" placeholder="Review" rows="10" class="form-control" required></textarea>
+        <small id="charCount">0/1000 characters</small> <!-- Add this to display character count -->
       </div>
       
       <button type="submit" class="btn btn-dark">Submit</button>
