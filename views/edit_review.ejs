@@ -4,15 +4,86 @@
   <%- include("partials/head.ejs") %>
 </head>
 
-<body>
+<body class="bg-light">
   <%- include("partials/header.ejs") %>
 
-  <div class="container mt-4">
-  
-  <h1> <%= pageTitle %> </h1>
+  <div class="container min-vh-100 d-flex align-items-center justify-content-center">
 
-</div>
+    <div class="card shadow p-4" style="width: 100%; max-width: 700px;">
+      <h3 class="mt-1 pt-0 mb-3">Edit Review</h3>
+      
+      <!-- Form for editing review -->
+      <form action="/edit-review/<%= review.id %>" method="POST" class="mt-2">
+      
+        <div class="mb-2">
+          <input type="text" name="username" value="<%= review.username %>" placeholder="Your Name" required class="form-control">
+        </div>
+      
+        <div class="mb-2">
+          <input type="text" name="title" value="<%= review.title %>" placeholder="Book Title" required class="form-control">
+        </div>
+        
+        <div class="mb-2">
+          <input type="text" name="author" value="<%= review.author %>" placeholder="Author" required class="form-control">
+        </div>
+        
+        <div class="mb-3">
+          <input type="text" name="isbn13" value="<%= review.isbn13 %>" placeholder="ISBN (13 digits, no dashes)" pattern="\d{13}" title="ISBN must be exactly 13 digits with no spaces or dashes" required class="form-control">
+        </div>
 
-<%- include("partials/footer.ejs") %>
+        <div class="mb-3">
+          <label for="dateRead" class="form-label">Date Read</label>
+          <input type="date" name="date_read" id="dateRead" value="<%= review.date_read.toISOString().split('T')[0] %>" required class="form-control">
+        </div>
+        
+        <!-- Radio button for rating -->
+        <div class="mb-4">
+          <label class="form-label">Rating</label> <br>
+          <input name="rating" value="1" type="radio" id="rating1" <%= review.rating == 1 ? 'checked' : '' %> required>
+          <label for="rating1">★☆☆☆☆</label>
+          <br>
+          <input name="rating" value="2" type="radio" id="rating2" <%= review.rating == 2 ? 'checked' : '' %>>
+          <label for="rating2">★★☆☆☆</label>
+          <br>
+          <input name="rating" value="3" type="radio" id="rating3" <%= review.rating == 3 ? 'checked' : '' %>>
+          <label for="rating3">★★★☆☆</label>
+          <br>
+          <input name="rating" value="4" type="radio" id="rating4" <%= review.rating == 4 ? 'checked' : '' %>>
+          <label for="rating4">★★★★☆</label>
+          <br>
+          <input name="rating" value="5" type="radio" id="rating5" <%= review.rating == 5 ? 'checked' : '' %>>
+          <label for="rating5">★★★★★</label>
+        </div>
+        
+        <!-- Simple textarea for the review body -->
+        <div class="mb-3">
+          <label for="reviewBody" class="form-label">Review</label>
+          <textarea id="reviewBody" name="reviewBody" rows="10" class="form-control" maxlength="1000"><%= review.review_body %></textarea>
+          <small id="charCount">0/1000 characters</small>
+        </div>
+        
+        <!-- Submit and Cancel buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-dark">Submit</button>
+          <a href="/reviews/<%= review.id %>" class="btn btn-secondary">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <%- include("partials/footer.ejs") %>
 
 </body>
+</html>
+
+
+
+
+
+
+
+
+

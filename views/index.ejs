@@ -35,13 +35,16 @@
           
           <!-- Left side: Book cover -->
           <div class="col-md-1">
-            <img src="<%= review.coverImage %>" alt="Book cover for <%= review.title %>" class="img-fluid">
+            <a href="/reviews/<%= review.id %>">
+              <img src="<%= review.coverImage %>" alt="Book cover for <%= review.title %>" class="img-fluid">
+            </a>
           </div>
           
           <!-- Right side: Book details -->
           <div class="col-md-11">
+            <!-- Link to book_view page -->
             <h4 id="title<%= review.id %>">
-              <%= review.title %> - by <%= review.author %>
+              <a href="/reviews/<%= review.id %>" class="text-dark"><%= review.title %></a> - <%= review.author %>
             </h4>
             <p>Review by <strong><%=review.username%></strong></p>
             <p>Rating: <%= review.starRating %></p>
@@ -58,6 +61,9 @@
   <%- include("partials/footer.ejs") %>
 
 </body>
+</html>
+
+
 
 
 

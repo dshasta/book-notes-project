@@ -1,3 +1,37 @@
+/* Toolbar styles */
+.toolbar {
+  margin-bottom: 10px;
+}
+
+.toolbar button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  background-color: #e2e6ea;
+}
+
+.toolbar button:active {
+  background-color: #dae0e5;
+}
+
+/* Editor styles */
+#editor {
+  min-height: 200px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  background-color: white;
+  outline: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 
 
 

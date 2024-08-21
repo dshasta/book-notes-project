@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("partials/head.ejs") %>
+</head>
+
+<body class="bg-light">
+  <%- include("partials/header.ejs") %>
+
+  <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+
+    <div class="card shadow p-4" style="width: 100%; max-width: 700px;">
+      <h3 class="mt-1 pt-0 mb-3">New Review</h3>
+      
+      <form action="/add" method="POST" class="mt-2">
+      
+        <div class="mb-2">
+          <input type="text" name="username" placeholder="Your Name" required class="form-control">
+        </div>
+      
+        <div class="mb-2">
+          <input type="text" name="title" placeholder="Book Title" required class="form-control">
+        </div>
+        
+        <div class="mb-2">
+          <input type="text" name="author" placeholder="Author" required class="form-control">
+        </div>
+        
+        <div class="mb-3">
+          <input type="text" name="isbn13" placeholder="ISBN (13 digits, no dashes)" pattern="\d{13}" title="ISBN must be exactly 13 digits with no spaces or dashes" required class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="dateRead" class="form-label">Date Read</label>
+          <input type="date" name="date_read" id="dateRead" required class="form-control">
+        </div>
+        
+        <div class="mb-4">
+          <label class="form-label">Rating</label> <br>
+          <!-- 1 Star -->
+          <input name="rating" value="1" type="radio" id="rating1" required>
+          <label for="rating1">
+            <span aria-hidden="true" class="star">★☆☆☆☆</span>
+          </label>
+          <br>
+        
+          <!-- 2 Stars -->
+          <input name="rating" value="2" type="radio" id="rating2">
+          <label for="rating2">
+            <span aria-hidden="true" class="star">★★☆☆☆</span>
+          </label>
+          <br>
+        
+          <!-- 3 Stars -->
+          <input name="rating" value="3" type="radio" id="rating3">
+          <label for="rating3">
+            <span aria-hidden="true" class="star">★★★☆☆</span>
+          </label>
+          <br>
+        
+          <!-- 4 Stars -->
+          <input name="rating" value="4" type="radio" id="rating4">
+          <label for="rating4">
+            <span aria-hidden="true" class="star">★★★★☆</span>
+          </label>
+          <br>
+        
+          <!-- 5 Stars -->
+          <input name="rating" value="5" type="radio" id="rating5">
+          <label for="rating5">
+            <span aria-hidden="true" class="star">★★★★★</span>
+          </label>
+        </div>
+        
+        <div class="mb-3">
+          <textarea id="reviewBody" name="reviewBody" placeholder="Review" rows="10" class="form-control" required></textarea>
+          <small id="charCount">0/1000 characters</small> <!-- Character count display -->
+        </div>
+
+        <!-- Submit and Cancel buttons -->
+        <div class="d-flex justify-content-between">
+          <button type="submit" class="btn btn-dark">Submit</button>
+          <a href="/" class="btn btn-secondary">Cancel</a> <!-- Cancel button redirects to home -->
+        </div>
+
+      </form>
+
+    </div>
+
+  </div> 
+
+  <%- include("partials/footer.ejs") %>
+
+</body>
+</html>
+
