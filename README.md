@@ -2,6 +2,17 @@
 
 This is a CRUD (Create, Read, Update, Delete) web application that allows users to submit and manage book reviews. The application uses PostgreSQL for data persistence and features sorting, star ratings, and dynamic book cover fetching from the Open Library API.
 
+## Screenshots
+
+![Home Page](public/assets/screenshot-home-page.png)
+*Home page displaying all reviews*
+
+![New Review Form](public/assets/screenshot-new-review-form.png)
+*Form for submitting a new book review*
+
+![Single Book View](public/assets/screenshot-single-book-view.png)
+*Detailed view of a single book review*
+
 ## Features
 
 - Submit new book reviews with title, author, ISBN, and personal rating
@@ -15,28 +26,30 @@ This is a CRUD (Create, Read, Update, Delete) web application that allows users 
 ## Project Structure
 
 Capstone 5 - Book Review App  
-├── node_modules
-├── public
-│ ├── assets
-│ │ └── book-favicon.png
-│ ├── styles
-│ │ └── main.css
-├── views
-│ ├── partials
-│ │ ├── footer.ejs
-│ │ ├── head.ejs
-│ │ ├── header.ejs
-│ ├── book_view.ejs
-│ ├── edit_review.ejs
-│ ├── index.ejs
-│ ├── new_review.ejs
-├── .env
-├── .gitignore
-├── index.js
-├── package-lock.json
-├── package.json
+├── node_modules  
+├── public  
+│   ├── assets  
+│   │   ├── book-favicon.png  
+│   │   ├── screenshot-home-page.png  
+│   │   ├── screenshot-new-review-form.png  
+│   │   └── screenshot-single-book-view.png  
+│   ├── styles  
+│   │   └── main.css  
+├── views  
+│   ├── partials  
+│   │   ├── footer.ejs  
+│   │   ├── head.ejs  
+│   │   ├── header.ejs  
+│   ├── book_view.ejs  
+│   ├── edit_review.ejs  
+│   ├── index.ejs  
+│   ├── new_review.ejs  
+├── .env  
+├── .gitignore  
+├── index.js  
+├── package-lock.json  
+├── package.json  
 └── README.md
-
 
 ## Installation
 
@@ -96,7 +109,6 @@ Before running the application, you need to set up a PostgreSQL database.
 
 Once you've set up the database and created the necessary tables, the application should be ready to run.
 
-
 ## Usage
 
 1. Start the server:
@@ -142,4 +154,5 @@ This directory contains static assets such as CSS and images.
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
 
